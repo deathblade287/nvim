@@ -1,24 +1,8 @@
--- Mapping data with "desc" stored directly by vim.keymap.set().
---
--- Please use this mappings table to set keyboard mapping since this is the
--- lower level configuration and more robust one. (which-key will
--- automatically pick-up stored data by this setting.)
+local mark = require "harpoon.mark"
+local ui = require "harpoon.ui"
+
 return {
-  -- first key is the mode
   n = {
-    -- second key is the lefthand side of the map
-
-    -- navigate buffer tabs with `H` and `L`
-    -- L = {
-    --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-    --   desc = "Next buffer",
-    -- },
-    -- H = {
-    --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-    --   desc = "Previous buffer",
-    -- },
-
-    -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
@@ -27,14 +11,26 @@ return {
       end,
       desc = "Pick to close",
     },
-    -- tables with the `name` key will be registered with which-key if it's installed
-    -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
-    -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<C-s>"] = { ":w<cr>", desc = "Save File" },
+
+    ["<C-Tab>"] = { ":bnext<cr>", desc = "Next Buffer" },
+    ["<C-S-Tab>"] = { ":bprevious<cr>", desc = "Previous Buffer" },
+    ["<C-t>"] = { ":Touch<cr>", desc = "New parrell (tab-like) buffer with file manager" },
+    -- ["<C-w>"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" },
+
+    ["<C-f>"] = { function() require("telescope.builtin").find_files() end, desc = "Find files" },
+
+    -- ["A-a>"] = { mark.add_file, desc = "Add file to harpoon" },
+    ["<leader>a"] = { mark.add_file, desc = "Add file to harpoon" },
+
+    ["<A-h>"] = { ui.toggle_quick_menu, desc = "Open harpoon UI" },
+    ["<leader>h"] = { ui.toggle_quick_menu, desc = "Open harpoon UI" },
+
+    -- ["A-1>"] = { ui.nav_file(1), desc = "Harpoon File 1" },
+    -- ["A-2>"] = { ui.nav_file(1), desc = "Harpoon File 2" },
+    -- ["A-3>"] = { ui.nav_file(1), desc = "Harpoon File 3" },
+    -- ["A-4>"] = { ui.nav_file(1), desc = "Harpoon File 4" },
   },
-  t = {
-    -- setting a mapping to false will disable it
-    -- ["<esc>"] = false,
-  },
+  t = {},
 }

@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "onedark",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -64,6 +64,11 @@ return {
       },
     },
   },
+
+  vim.api.nvim_create_user_command("Touch", function()
+    vim.cmd "enew"
+    vim.cmd "edit ."
+  end, {}),
 
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
