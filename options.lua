@@ -12,10 +12,10 @@ return {
     mapleader = " ",
     autoformat_enabled = true,
     cmp_enabled = true,
-    autopairs_enabled = true, -- enable autopairs at start
+    autopairs_enabled = true,
     diagnostics_mode = 3,
     icons_enabled = true,
     ui_notifications_enabled = true,
-    resession_enabled = false, -- enable experimental resession.nvim session management (will be default in AstroNvim v4)
+    resession_enabled = false,
   },
 }
