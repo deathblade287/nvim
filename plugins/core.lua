@@ -5,7 +5,7 @@ return {
   { "stevearc/aerial.nvim", enabled = false },
   { "AstroNvim/astrotheme", enabled = false },
   { "max397574/better-escape.nvim", enabled = false },
-
+  { "folke/which-key.nvim", enabled=false},
   -- small plugin confs
   {
     "nvim-neo-tree/neo-tree.nvim",

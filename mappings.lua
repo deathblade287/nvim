@@ -43,6 +43,9 @@ return {
     -- ["<A-2>"] = { ui.nav_file(1), desc = "Harpoon File 2" },
     -- ["<A-3>"] = { ui.nav_file(1), desc = "Harpoon File 3" },
     -- ["<A-4>"] = { ui.nav_file(1), desc = "Harpoon File 4" },
+    ["<leader>fo"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" },
+    ["<leader>fr"] = { function() require("telescope.builtin").oldfiles() end, desc = "Find history" }
+
   },
   t = {},
 }
