@@ -5,7 +5,7 @@ keymap('', '<Space>', '<Nop>', {})
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Normal MODE --
+---- Normal MODE --
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
@@ -17,6 +17,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- keymap('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 -- keymap('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- keymap('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+
+-- Page Movement
+keymap('n', '<C-d>', '<C-d>zz', { desc = 'Moves half a page up and centers' })
+keymap('n', '<C-u>', '<C-u>zz', { desc = 'Moves half a down up and centers' })
 
 -- Navigating buffers
 keymap('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })

@@ -1,6 +1,8 @@
 -- Basic Editor Options
 vim.opt.number = true
 vim.opt.showmode = false
+vim.opt.relativenumber = true
+vim.opt.tabstop = 4
 
 -- UI/UX Enhancements
 vim.opt.signcolumn = 'no'
@@ -21,15 +23,8 @@ vim.opt.smartcase = true
 
 -- Clipboard and Mouse Integration
 vim.opt.mouse = 'a'
-vim.opt.clipboard = 'unnamedplus' -- sync clipboard between OS and Neovim.
+-- vim.opt.clipboard = 'unnamedplus' -- sync clipboard between OS and Neovim.
 
 -- Split Window Behavior
 vim.opt.splitright = true
 vim.opt.splitbelow = true
-
--- Timing Settings
--- vim.opt.updatetime = 200
--- vim.opt.timeoutlen = 220
-
--- No autocommenting
-vim.opt.formatoptions:remove({'o', 'r'})
