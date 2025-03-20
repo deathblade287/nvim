@@ -8,6 +8,7 @@ return {
         lua = { 'stylua' },
         python = { 'autopep8' },
         javascript = { { 'prettierd', 'prettier' } },
+        c = { 'clang-format' },
       },
     },
   },

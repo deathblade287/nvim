@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- FIX: Not working properly
 -- Format on save
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*',
@@ -14,10 +15,3 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     require('conform').format { bufnr = args.buf }
   end,
 })
-
--- Create a new tab with file explorer
-vim.api.nvim_create_user_command('Touch', function()
-  vim.cmd 'enew'
-  vim.cmd 'edit .'
-end, {})
-

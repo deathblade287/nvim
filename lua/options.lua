@@ -1,8 +1,9 @@
 -- Basic Editor Options
 vim.opt.number = true
-vim.opt.showmode = false
 vim.opt.relativenumber = true
+vim.opt.showmode = false
 vim.opt.tabstop = 4
+vim.opt.guicursor = 'n-v-i-c:block-Cursor' -- use the block cursor for all modes
 
 -- UI/UX Enhancements
 vim.opt.signcolumn = 'no'
