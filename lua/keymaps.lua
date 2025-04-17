@@ -1,48 +1,54 @@
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+local keymap = vim.api.nvim_set_keymap
+keymap('', '<Space>', '<Nop>', {})
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+-- Disable Arrow Navigation
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+-- Buffer Navigation
+-- keymap('n', '<C-h>', '<C-w><C-h>')
+-- keymap('n', '<C-l>', '<C-w><C-l>')
+-- keymap('n', '<C-j>', '<C-w><C-j>')
+-- keymap('n', '<C-k>', '<C-w><C-k>')
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- Resize Buffers (w/ Arrows)
+-- keymap('n', '<C-Up>', ':resize +2<CR>', {})
+-- keymap('n', '<C-Down>', ':resize -2<CR>', {})
+-- keymap('n', '<C-Left>', ':vertical resize -2<CR>', {})
+-- keymap('n', '<C-Right>', ':vertical resize +2<CR>', {})
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
+-- Page Movement
+keymap('n', '<C-d>', '<C-d>zz', {})
+keymap('n', '<C-u>', '<C-u>zz', {})
 
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
+-- File Navigation
+keymap('n', '<leader>e', ':Neotree<cr>', { desc = 'Open Neotree' })
 
--- vim: ts=2 sts=2 sw=2 et
+-- Managing Buffers
+keymap('n', '<leader>nf', ':Touch<CR>', {})
+-- keymap('n', '<C-t>', ':Touch<CR>', {})
+
+keymap('n', '<leader>bd', ':bdelete<CR>', {})
+
+keymap('n', '<C-Tab>', ':bnext<CR>', {})
+keymap('n', '<C-S-Tab>', ':bprevious<CR>', {})
+
+keymap('n', '<leader>bn', ':bnext<CR>', {})
+keymap('n', '<leader>bp', ':bprevious<CR>', {})
+
+-- VISUAL MODE --
+keymap('v', '<A-j>', ':m .+1<CR>==', {})
+keymap('v', '<A-k>', ':m .-2<CR>==', {})
+keymap('v', 'p', '"_dP', {})
+
+keymap('v', '<C-[>', '<gv', {})
+keymap('v', '<C-]>', '>gv', {})
+
+keymap('v', '<Esc>', '<Esc>:normal! <Esc>', { noremap = true })
