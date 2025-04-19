@@ -1,0 +1,2 @@
+return {'huyvohcmc/atlas.vim'}
+

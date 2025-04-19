@@ -30,7 +30,7 @@ local LazyOpts = {
     wrap = true,
   },
   defaults = {
-    lazy = true,
+    lazy = false,
   },
   install = {
     missing = true,
