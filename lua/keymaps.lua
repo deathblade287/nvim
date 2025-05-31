@@ -28,27 +28,37 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 keymap('n', '<C-d>', '<C-d>zz', {})
 keymap('n', '<C-u>', '<C-u>zz', {})
 
+-- Esc Alternative(s)
+-- keymap('i', 'jj', '<Esc>', {})
+-- keymap('i', 'jk', '<Esc>', {})
+
 -- File Navigation
 keymap('n', '<leader>e', ':Neotree<cr>', { desc = 'Open Neotree' })
 
 -- Managing Buffers
-keymap('n', '<leader>nf', ':Touch<CR>', {})
--- keymap('n', '<C-t>', ':Touch<CR>', {})
+keymap('n', '<leader>bc', ':Touch<CR>', {})
 
 keymap('n', '<leader>bd', ':bdelete<CR>', {})
 
-keymap('n', '<C-Tab>', ':bnext<CR>', {})
-keymap('n', '<C-S-Tab>', ':bprevious<CR>', {})
+keymap('n', '<Tab>', ':bnext<CR>', {})
+keymap('n', '<S-Tab>', ':bprevious<CR>', {})
 
 keymap('n', '<leader>bn', ':bnext<CR>', {})
 keymap('n', '<leader>bp', ':bprevious<CR>', {})
 
--- VISUAL MODE --
 keymap('v', '<A-j>', ':m .+1<CR>==', {})
 keymap('v', '<A-k>', ':m .-2<CR>==', {})
 keymap('v', 'p', '"_dP', {})
 
-keymap('v', '<C-[>', '<gv', {})
-keymap('v', '<C-]>', '>gv', {})
+-- Indentation In All modes w/ Ctrl + [ \ ]
+-- keymap('v', '<C-[>', '<gv', {})
+-- keymap('v', '<C-]>', '>gv', {})
 
-keymap('v', '<Esc>', '<Esc>:normal! <Esc>', { noremap = true })
+-- -- Treewalker
+-- -- movement
+-- keymap('n', '<C-,>', '<cmd>Treewalker Up<cr>', { silent = true })
+-- keymap('n', '<C-.>', '<cmd>Treewalker Down<cr>', { silent = true })
+--
+-- -- swapping
+-- keymap('n', '<C-S-,>', '<cmd>Treewalker SwapUp<cr>', { silent = true })
+-- keymap('n', '<C-S-.>', '<cmd>Treewalker SwapDown<cr>', { silent = true })

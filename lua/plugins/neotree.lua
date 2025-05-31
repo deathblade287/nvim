@@ -1,6 +1,7 @@
 -- FIX: Icons Don't Work
 
 return {
+  lazy = true,
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
   dependencies = {

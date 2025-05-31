@@ -30,7 +30,7 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        python = { 'isort', 'black' },
+        python = { 'ruff', 'isort', 'black' },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         c = { 'clang-format', 'prettierd', 'prettier', stop_after_first = true },
         cpp = { 'clang-format', 'prettierd', 'prettier', stop_after_first = true },

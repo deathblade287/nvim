@@ -1,21 +1,25 @@
 -- NOTE:  For more options, you can see `:help option-list`
 
 -- Basic Editor Options
-vim.opt.number = true
+vim.opt.number = true -- Enabling both number and relativenumber puts you in hybrid mode
 vim.opt.relativenumber = true
 vim.opt.showmode = true
-vim.opt.tabstop = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 -- UI/UX Enhancements
 vim.opt.guicursor = 'n-v-i-c:block-Cursor'
-vim.opt.cursorline = true
-vim.opt.signcolumn = 'yes'
+vim.opt.cursorline = false
+vim.opt.laststatus = 0
+vim.opt.ruler = false
+vim.opt.showmode = false
+vim.opt.signcolumn = 'no'
 vim.opt.inccommand = 'split'
 vim.g.have_nerd_font = true
 
 -- Editing Experience
 vim.opt.confirm = true
-vim.opt.scrolloff = 30
+vim.opt.scrolloff = 5
 vim.opt.breakindent = true
 vim.opt.undofile = true
 
@@ -28,7 +32,6 @@ vim.opt.smartcase = true
 
 -- Clipboard and Mouse Integration
 vim.opt.mouse = 'a'
-vim.opt.clipboard = 'unnamedplus'
 
 -- Split Window Behavior
 vim.opt.splitright = true

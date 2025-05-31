@@ -1,19 +1,18 @@
-local M = {}
+local editorCmds = {}
 
-function M.setup()
-  vim.api.nvim_create_user_command('Touch', function(opts)
-    local fname = opts.args
-    local dir = vim.fn.fnamemodify(fname, ':p:h')
-    vim.fn.mkdir(dir, 'p')
-    if vim.fn.empty(vim.fn.glob(fname)) == 1 then
-      local f = io.open(fname, 'w')
-      if f then f:close() end
-    end
-    vim.cmd('edit ' .. vim.fn.fnameescape(fname))
+function editorCmds.setup()
+  vim.api.nvim_create_user_command('Touch', function()
+    vim.cmd 'enew'
+    require('oil').open()
   end, {
-    nargs = 1,
-    desc  = 'Create a new (empty) file and open it',
+    nargs = 0,
+    desc = 'New Buffer w/ oil.nvim',
   })
+  vim.api.nvim_create_user_command('Num', function()
+    local on = vim.wo.number or vim.wo.relativenumber
+    vim.opt.number = not on
+    vim.opt.relativenumber = not on
+  end, { desc = 'Toggle Hybrid number' })
 end
 
-return M
+return editorCmds
