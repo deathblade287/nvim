@@ -8,12 +8,12 @@ return {
     vim.opt.background = 'dark'
 
     -- Grab the greyscale palette
-    local mono   = require('e-ink.palette').mono()
+    local mono = require('e-ink.palette').mono()
     local set_hl = vim.api.nvim_set_hl
 
     -- Only override comments and strings:
     -- pick a mid-light grey (mono[4] = "#AEAEAE")
     set_hl(0, 'Comment', { fg = mono[4] })
-    set_hl(0, 'String',  { fg = mono[4] })
+    set_hl(0, 'String', { fg = mono[4] })
   end,
 }

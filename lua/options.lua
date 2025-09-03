@@ -1,8 +1,8 @@
 -- NOTE:  For more options, you can see `:help option-list`
 
 -- Basic Editor Options
-vim.opt.number = true -- Enabling both number and relativenumber puts you in hybrid mode
-vim.opt.relativenumber = true
+vim.opt.number = false -- Enabling both number and relativenumber puts you in hybrid mode
+vim.opt.relativenumber = false
 vim.opt.showmode = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -13,7 +13,8 @@ vim.opt.cursorline = false
 vim.opt.laststatus = 0
 vim.opt.ruler = false
 vim.opt.showmode = false
-vim.opt.signcolumn = 'no'
+vim.opt.signcolumn = 'yes'
+-- vim.opt.statuscolumn = '%s│ '
 vim.opt.inccommand = 'split'
 vim.g.have_nerd_font = true
 
