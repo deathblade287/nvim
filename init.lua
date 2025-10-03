@@ -10,7 +10,6 @@ require 'autoCmds'
 -- set_hl(0, 'Normal', { fg = mono[12], bg = 'NONE' })
 
 vim.cmd [[
-  filetype off
   syntax off
 ]]
 vim.opt.termguicolors = false
