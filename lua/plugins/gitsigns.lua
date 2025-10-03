@@ -2,7 +2,6 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     opts = {
-      lazy = true,
       signs = {
         add = { text = '+' },
         change = { text = '~' },
